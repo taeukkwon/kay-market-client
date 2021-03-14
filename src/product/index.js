@@ -19,7 +19,6 @@ function ProductPage() {
       });
   };
   useEffect(function () {
-    message.info("구매가 완료되었습니다");
     getProduct();
   }, []);
 
@@ -32,42 +31,43 @@ function ProductPage() {
       .post(`${API_URL}/purchase/${id}`)
       .then((result) => {
         getProduct();
+        message.info("구매가 완료되었습니다");
       })
       .catch((error) => {
-        message.error("에러가 발생했습니다");
+        message.error("에러 발생");
       });
-
-    console.log(product);
-
-    return (
-      <div>
-        <div id="image-box">
-          <img src={"/" + product.imageUrl} />
-        </div>
-        <div id="profile-box">
-          <img src="/images/icons/avatar.png" />
-          <span>{product.seller}</span>
-        </div>
-
-        <div id="contents-box">
-          <div id="name">{product.name}</div>
-          <div id="price">{product.price}원</div>
-          <div id="createdAt"></div>
-          <Button
-            id="purchase-button"
-            size="large"
-            type="primary"
-            danger
-            onclick={onClickPurchase}
-            disabled={product.soldout === 1}
-          >
-            재빨리 구매하기
-          </Button>
-          <div id="description">{product.description}</div>
-        </div>
-      </div>
-    );
   };
+
+  console.log(product);
+
+  return (
+    <div>
+      <div id="image-box">
+        <img src={"/" + product.imageUrl} />
+      </div>
+      <div id="profile-box">
+        <img src="/images/icons/avatar.png" />
+        <span>{product.seller}</span>
+      </div>
+
+      <div id="contents-box">
+        <div id="name">{product.name}</div>
+        <div id="price">{product.price}원</div>
+        <div id="createdAt"></div>
+        <Button
+          id="purchase-button"
+          size="large"
+          type="primary"
+          danger
+          onClick={onClickPurchase}
+          disabled={product.soldout === 1}
+        >
+          재빨리 구매하기
+        </Button>
+        <div id="description">{product.description}</div>
+      </div>
+    </div>
+  );
 }
 
 export default ProductPage;
