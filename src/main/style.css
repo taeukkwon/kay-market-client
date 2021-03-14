@@ -17,6 +17,16 @@
   border: 1px solid #eaeaea;
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
+}
+
+.product-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffffaa;
 }
 
 .product-img {
@@ -50,7 +60,7 @@
 }
 
 #banner {
-  height: 300px;
+  max-height: 300px;
   background-color: #293790;
 }
 
