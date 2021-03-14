@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Carousel } from "antd";
+import { API_URL } from "../config/constants.js";
 
 dayjs.extend(relativeTime);
 
@@ -13,7 +14,7 @@ function MainPage() {
   const [banners, setBanners] = React.useState([]);
   React.useEffect(function () {
     axios
-      .get("http://localhost:8080/products")
+      .get(`${API_URL}/products`)
       .then(function (result) {
         const products = result.data.bananas;
 
@@ -25,7 +26,7 @@ function MainPage() {
       });
 
     axios
-      .get("http://localhost:8080/banners")
+      .get(`${API_URL}/banners`)
       .then((result) => {
         const banners = result.data.banners;
         setBanners(banners);

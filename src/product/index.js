@@ -3,13 +3,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./index.css";
 import { Button, message } from "antd";
+import { API_URL } from "../config/constants/js";
 
 function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const getProduct = () => {
     axios
-      .get(`http://localhost:8080/products/${id}`)
+      .get(`${API_URL}/products/${id}`)
       .then(function (result) {
         setProduct(result.data.product);
       })

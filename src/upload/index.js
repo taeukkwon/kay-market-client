@@ -26,13 +26,13 @@ function UploadPage() {
         >
           <Upload
             name="image"
-            action="http://localhost:8080/image"
+            action={`${API_URL}/image`}
             listType="picture"
             showUploadList={false}
             onChange={onChangeImage}
           >
             {imageUrl ? (
-              <img id="upload-img" src={`http://localhost:8080/${imageUrl}`} />
+              <img id="upload-img" src={`${API_URL}/${imageUrl}`} />
             ) : (
               <div id="upload-img-placeholder">
                 <img src="/images/icons/camera.png" />
