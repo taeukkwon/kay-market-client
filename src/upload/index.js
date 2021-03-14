@@ -1,6 +1,7 @@
 import { Form, Divider, Input, InputNumber, Button, Upload } from "antd";
 import "./index.css";
 import React, { useState } from "react";
+import { API_URL } from "../config/constants.js";
 
 function UploadPage() {
   const [imageUrl, setImageUrl] = React.useState(null);

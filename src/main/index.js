@@ -43,7 +43,7 @@ function MainPage() {
           return (
             <Link to={banner.href}>
               <div id="banner">
-                <img src={`http://localhost:8080/${banner.imageUrl}`} />;
+                <img src={`${API_URL}/${banner.imageUrl}`} />;
               </div>
             </Link>
           );

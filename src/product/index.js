@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./index.css";
 import { Button, message } from "antd";
-import { API_URL } from "../config/constants/js";
+import { API_URL } from "../config/constants.js";
 
 function ProductPage() {
   const { id } = useParams();
@@ -29,7 +29,7 @@ function ProductPage() {
 
   const onClickPurchase = () => {
     axios
-      .post(`http://localhost:8080/purchase/${id}`)
+      .post(`${API_URL}/purchase/${id}`)
       .then((result) => {
         getProduct();
       })
